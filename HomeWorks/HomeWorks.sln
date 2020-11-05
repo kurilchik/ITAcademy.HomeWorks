@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HW01", "HW01", "{55CE0AFB-3110-44DB-85D5-C69205AF960F}"
+	ProjectSection(SolutionItems) = preProject
+		HW01\HW01.Task1.txt = HW01\HW01.Task1.txt
+		HW01\HW01.Task2.png = HW01\HW01.Task2.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
