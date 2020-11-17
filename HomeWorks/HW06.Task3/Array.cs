@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace HW06.Task3
 {
     public class Array
     {
-        static int[] _nums = new int[10];
+        static long[] _nums = new long[100_000_000];
 
         public static void MyReverse()
         {
             NewArray();
-            int temp = 0;
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            long temp = 0;
             int i = 0;
             int j = _nums.Length - 1;
             while (i < j)
@@ -23,17 +28,40 @@ namespace HW06.Task3
                 j--;
             }
 
-            Console.WriteLine("The result of my reverse:");
-            Print(_nums);
+            stopwatch.Stop();
+            Console.WriteLine($"My reverse time: {stopwatch.ElapsedMilliseconds} (while)");
+        }
+
+        public static void MySecondReverse()
+        {
+            NewArray();
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            long temp = 0;
+            for (int i = 0, j = _nums.Length - 1; i < j; i++, j--)
+            {
+                temp = _nums[i];
+                _nums[i] = _nums[j];
+                _nums[j] = temp;
+            }
+
+            stopwatch.Stop();
+            Console.WriteLine($"My second reverse time: {stopwatch.ElapsedMilliseconds} (for)");
         }
 
         public static void SystemReverse()
         {
             NewArray();
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             System.Array.Reverse(_nums);
 
-            Console.WriteLine("The result of system reverse:");
-            Print(_nums);
+            stopwatch.Stop();
+            Console.WriteLine($"System reverse time: {stopwatch.ElapsedMilliseconds}");
         }
 
         private static void NewArray()
@@ -41,11 +69,8 @@ namespace HW06.Task3
             Random random = new Random();
             for (int i = 0; i < _nums.Length; i++)
             {
-                _nums[i] = random.Next(0, 10);
+                _nums[i] = random.Next();
             }
-
-            Console.WriteLine("New array:");
-            Print(_nums);
         }
 
         private static void Print(int[] nums)
