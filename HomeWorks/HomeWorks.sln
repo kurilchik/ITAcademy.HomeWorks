@@ -4,6 +4,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03.Task1", "HW03.Task1\HW03.Task1.csproj", "{212B7475-F948-4387-A98E-D253550FC2CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03.Task2", "HW03.Task2\HW03.Task2.csproj", "{C9F6AE9D-312A-4115-B698-5856C84C45FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03.Task3", "HW03.Task3\HW03.Task3.csproj", "{486A83E5-67B5-4F16-95D0-9FE97F959718}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{212B7475-F948-4387-A98E-D253550FC2CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212B7475-F948-4387-A98E-D253550FC2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212B7475-F948-4387-A98E-D253550FC2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212B7475-F948-4387-A98E-D253550FC2CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F6AE9D-312A-4115-B698-5856C84C45FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F6AE9D-312A-4115-B698-5856C84C45FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F6AE9D-312A-4115-B698-5856C84C45FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F6AE9D-312A-4115-B698-5856C84C45FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{486A83E5-67B5-4F16-95D0-9FE97F959718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{486A83E5-67B5-4F16-95D0-9FE97F959718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{486A83E5-67B5-4F16-95D0-9FE97F959718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{486A83E5-67B5-4F16-95D0-9FE97F959718}.Release|Any CPU.Build.0 = Release|Any CPU
+
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW04.Task1", "HW04.Task1\HW04.Task1.csproj", "{0FC95BE2-7985-47BB-B95F-71CF45CED60E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW04.Task2", "HW04.Task2\HW04.Task2.csproj", "{FA712AC9-751C-4D98-BB0E-45CF70101348}"
@@ -48,6 +74,7 @@ Global
 		{EF8F9ECE-285D-48A4-8983-B838A44FA567}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF8F9ECE-285D-48A4-8983-B838A44FA567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF8F9ECE-285D-48A4-8983-B838A44FA567}.Release|Any CPU.Build.0 = Release|Any CPU
+
 
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
