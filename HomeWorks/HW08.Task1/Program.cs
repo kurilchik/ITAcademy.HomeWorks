@@ -7,18 +7,22 @@ namespace HW08.Task1
     {
         static void Main(string[] args)
         {
-            string str = "1a!2.3!!..4.!.? 6 7!.. ?";
-
-            int startIndex1 = 0;
-            int count1 = str.IndexOf('?');
-            int startIndex2 = count1;
-            int count2 = str.Length - str.IndexOf('?');
-
+            string str = "1a!2.3!!.. 4.!.?6 7! ..?";
             StringBuilder sb = new StringBuilder(str);
 
-            sb.Replace('.', '\0', startIndex1, count1);
-            sb.Replace('!', '\0', startIndex1, count1);
-            sb.Replace(' ', '_', startIndex2, count2);
+            int index = str.IndexOf('?');
+
+            for (int i = index; i >= 0; i--)
+            {
+                if (char.Equals(str[i], '!') || char.Equals(str[i], '.'))
+                {
+                    sb.Remove(i, 1);
+                }
+            }
+
+            index = (sb.ToString()).IndexOf('?');
+
+            sb.Replace(' ', '_', index, sb.Length - index);
 
             Console.WriteLine(sb);
         }
