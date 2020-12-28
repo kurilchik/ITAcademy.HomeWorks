@@ -7,18 +7,20 @@ namespace HW15
 {
     class FileMotorcycleRepository : IMotorcycle
     {
+        private readonly string _savePath = @"C:\Users\DELL\Documents\";
+
         public void CreateMotorcycle(Motorcycle motorcycle)
         {
-            string savePath = $"C:\\Users\\DELL\\Documents\\motorcycle{motorcycle.Id}.json";
+            string path = _savePath + $"motorcycle{motorcycle.Id}.json";
 
-            File.WriteAllText(savePath, JsonConvert.SerializeObject(motorcycle));
+            File.WriteAllText(path, JsonConvert.SerializeObject(motorcycle));
         }
 
         public void DeleteMotorcycle(int id)
         {
-            string savePath = $"C:\\Users\\DELL\\Documents\\motorcycle{id}.json";
+            string path = _savePath + $"motorcycle{id}.json";
 
-            FileInfo userSave = new FileInfo(savePath);
+            FileInfo userSave = new FileInfo(path);
             if (userSave.Exists)
             {
                 userSave.Delete();
@@ -29,23 +31,21 @@ namespace HW15
 
         public Motorcycle GetMotorcycleByID(int id)
         {
-            string savePath = $"C:\\Users\\DELL\\Documents\\motorcycle{id}.json";
+            string path = _savePath + $"motorcycle{id}.json";
 
-            return JsonConvert.DeserializeObject<Motorcycle>(File.ReadAllText(savePath));
+            return JsonConvert.DeserializeObject<Motorcycle>(File.ReadAllText(path));
         }
 
         public List<Motorcycle> GetMotorcycles()
         {
             List<Motorcycle> motorcycles = new List<Motorcycle>();
 
-            string savePath = $"C:\\Users\\DELL\\Documents\\";
-
-            DirectoryInfo saveFolder = new DirectoryInfo(savePath);
+            DirectoryInfo saveFolder = new DirectoryInfo(_savePath);
             FileInfo[] saveFiles = saveFolder.GetFiles();
 
             for (int i = 0; i < saveFiles.Length; i++)
             {
-                if (saveFiles[i].Extension == ".json")
+                if (saveFiles[i].Extension.Equals(".json", StringComparison.OrdinalIgnoreCase))
                 {
                     motorcycles.Add(JsonConvert.DeserializeObject<Motorcycle>(File.ReadAllText(saveFiles[i].FullName)));
                 }
@@ -58,9 +58,9 @@ namespace HW15
         {
             DeleteMotorcycle(motorcycle.Id);
 
-            string savePath = $"C:\\Users\\DELL\\Documents\\motorcycle{motorcycle.Id}.json";
+            string path = _savePath + $"motorcycle{motorcycle.Id}.json";
 
-            File.WriteAllText(savePath, JsonConvert.SerializeObject(motorcycle));
+            File.WriteAllText(path, JsonConvert.SerializeObject(motorcycle));
         }
     }
 }
