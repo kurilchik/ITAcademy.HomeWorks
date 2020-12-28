@@ -1,6 +1,6 @@
 ﻿namespace HW15
 {
-    class Motorcycle
+    public class Motorcycle
     {
         public int Id { get; set; }
 

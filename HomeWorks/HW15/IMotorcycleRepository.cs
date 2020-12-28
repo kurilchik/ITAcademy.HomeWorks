@@ -2,7 +2,7 @@
 
 namespace HW15
 {
-    interface IMotorcycle
+    public interface IMotorcycleRepository
     {
         public Motorcycle GetMotorcycleByID(int id);
 

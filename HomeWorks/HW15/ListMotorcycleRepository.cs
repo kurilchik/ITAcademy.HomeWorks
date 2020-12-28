@@ -2,7 +2,7 @@
 
 namespace HW15
 {
-    class ListMotorcycleRepository : IMotorcycle
+    class ListMotorcycleRepository : IMotorcycleRepository
     {
         List<Motorcycle> _motorcycles = new List<Motorcycle>();
 

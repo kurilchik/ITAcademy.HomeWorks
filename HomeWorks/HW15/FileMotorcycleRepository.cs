@@ -5,9 +5,9 @@ using System.IO;
 
 namespace HW15
 {
-    class FileMotorcycleRepository : IMotorcycle
+    public class FileMotorcycleRepository : IMotorcycleRepository
     {
-        private readonly string _savePath = @"C:\Users\DELL\Documents\";
+        private readonly string _savePath = @"C:\Users\vap\Documents\ПВТ\Moto\";
 
         public void CreateMotorcycle(Motorcycle motorcycle)
         {
@@ -56,7 +56,7 @@ namespace HW15
 
         public void UpdateMotorcycle(Motorcycle motorcycle)
         {
-            DeleteMotorcycle(motorcycle.Id);
+            //DeleteMotorcycle(motorcycle.Id);
 
             string path = _savePath + $"motorcycle{motorcycle.Id}.json";
 
