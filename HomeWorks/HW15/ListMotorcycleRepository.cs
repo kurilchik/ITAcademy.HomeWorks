@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HW15
 {
-    class ListMotorcycleRepository : IMotorcycle
+    public class ListMotorcycleRepository : IMotorcycleRepository<Motorcycle>
     {
         List<Motorcycle> _motorcycles = new List<Motorcycle>();
 
@@ -11,12 +12,12 @@ namespace HW15
             _motorcycles.Add(motorcycle);
         }
 
-        public void DeleteMotorcycle(int id)
+        public void DeleteMotorcycle(Guid id)
         {
             _motorcycles.Remove(_motorcycles.Find(x => x.Id == id));
         }
 
-        public Motorcycle GetMotorcycleByID(int id)
+        public Motorcycle GetMotorcycleByID(Guid id)
         {
             return _motorcycles.Find(x => x.Id == id);
         }

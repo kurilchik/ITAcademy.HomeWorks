@@ -5,50 +5,71 @@ using System.IO;
 
 namespace HW15
 {
-    class FileMotorcycleRepository : IMotorcycle
+    public class FileMotorcycleRepository : IMotorcycleRepository<Motorcycle>
     {
-        public void CreateMotorcycle(Motorcycle motorcycle)
-        {
-            string savePath = $"C:\\Users\\DELL\\Documents\\motorcycle{motorcycle.Id}.json";
+        private readonly string _savePath = ".\\Motorcycles\\";
 
-            File.WriteAllText(savePath, JsonConvert.SerializeObject(motorcycle));
+        public FileMotorcycleRepository()
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(_savePath);
+            if (!directoryInfo.Exists)
+            {
+                directoryInfo.Create();
+            }
         }
 
-        public void DeleteMotorcycle(int id)
+        public void CreateMotorcycle(Motorcycle motorcycle)
         {
-            string savePath = $"C:\\Users\\DELL\\Documents\\motorcycle{id}.json";
+            string path = $"{_savePath}ID_{motorcycle.Id}.json";
 
-            FileInfo userSave = new FileInfo(savePath);
-            if (userSave.Exists)
+            File.WriteAllText(path, JsonConvert.SerializeObject(motorcycle));
+        }
+
+        public void DeleteMotorcycle(Guid id)
+        {
+            string path = $"{_savePath}ID_{id}.json";
+
+            FileInfo fileInfo = new FileInfo(path);
+            if (fileInfo.Exists)
             {
-                userSave.Delete();
+                fileInfo.Delete();
             }
             else
                 Console.WriteLine("File not found!");
         }
 
-        public Motorcycle GetMotorcycleByID(int id)
+        public Motorcycle GetMotorcycleByID(Guid id)
         {
-            string savePath = $"C:\\Users\\DELL\\Documents\\motorcycle{id}.json";
+            string path = $"{_savePath}ID_{id}.json";
 
-            return JsonConvert.DeserializeObject<Motorcycle>(File.ReadAllText(savePath));
+            FileInfo fileInfo = new FileInfo(path);
+            if (fileInfo.Exists)
+            {
+                return JsonConvert.DeserializeObject<Motorcycle>(File.ReadAllText(path));
+            }
+            else
+            {
+                Console.WriteLine("File not found!");
+                return new Motorcycle();
+            }
         }
 
         public List<Motorcycle> GetMotorcycles()
         {
             List<Motorcycle> motorcycles = new List<Motorcycle>();
 
-            string savePath = $"C:\\Users\\DELL\\Documents\\";
+            DirectoryInfo directoryInfo = new DirectoryInfo(_savePath);
+            FileInfo[] filesInfo = directoryInfo.GetFiles();
 
-            DirectoryInfo saveFolder = new DirectoryInfo(savePath);
-            FileInfo[] saveFiles = saveFolder.GetFiles();
-
-            for (int i = 0; i < saveFiles.Length; i++)
+            for (int i = 0; i < filesInfo.Length; i++)
             {
-                if (saveFiles[i].Extension == ".json")
-                {
-                    motorcycles.Add(JsonConvert.DeserializeObject<Motorcycle>(File.ReadAllText(saveFiles[i].FullName)));
-                }
+                if (filesInfo[i].Extension.Equals(".json", StringComparison.OrdinalIgnoreCase))
+                    motorcycles.Add(JsonConvert.DeserializeObject<Motorcycle>(File.ReadAllText(filesInfo[i].FullName)));
+            }
+
+            if (motorcycles.Count.Equals(0))
+            {
+                Console.WriteLine("Files not found!");
             }
 
             return motorcycles;
@@ -56,11 +77,15 @@ namespace HW15
 
         public void UpdateMotorcycle(Motorcycle motorcycle)
         {
-            DeleteMotorcycle(motorcycle.Id);
+            string path = $"{_savePath}ID_{motorcycle.Id}.json";
 
-            string savePath = $"C:\\Users\\DELL\\Documents\\motorcycle{motorcycle.Id}.json";
-
-            File.WriteAllText(savePath, JsonConvert.SerializeObject(motorcycle));
+            FileInfo fileInfo = new FileInfo(path);
+            if (!fileInfo.Exists)
+            {
+                Console.WriteLine("File not found!");
+            }
+            else
+                CreateMotorcycle(motorcycle);
         }
     }
 }
