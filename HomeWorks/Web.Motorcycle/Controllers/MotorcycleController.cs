@@ -10,7 +10,7 @@ namespace Web.Motorcycle.Controllers
 {
     public class MotorcycleController : Controller
     {
-        private readonly IMotorcycleRepository _motorcycleRepository;
+        private readonly IMotorcycleRepository<HW15.Motorcycle> _motorcycleRepository;
 
         public MotorcycleController()
         {
@@ -26,7 +26,7 @@ namespace Web.Motorcycle.Controllers
         }
 
         // GET: MotorcycleController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             return View();
         }
@@ -56,7 +56,7 @@ namespace Web.Motorcycle.Controllers
         }
 
         // GET: MotorcycleController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             var motorcycle = _motorcycleRepository.GetMotorcycleByID(id);
             return View(motorcycle);
@@ -65,7 +65,7 @@ namespace Web.Motorcycle.Controllers
         // POST: MotorcycleController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, HW15.Motorcycle motorcycle)
+        public ActionResult Edit(Guid id, HW15.Motorcycle motorcycle)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace Web.Motorcycle.Controllers
         }
 
         // GET: MotorcycleController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             return View();
         }
@@ -87,7 +87,7 @@ namespace Web.Motorcycle.Controllers
         // POST: MotorcycleController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id, IFormCollection collection)
         {
             try
             {
