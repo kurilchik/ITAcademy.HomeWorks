@@ -31,6 +31,7 @@ namespace HW15
 
             FileInfo fileInfo = new FileInfo(path);
             if (fileInfo.Exists)
+
             {
                 fileInfo.Delete();
             }
