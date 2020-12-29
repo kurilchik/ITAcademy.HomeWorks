@@ -1,8 +1,10 @@
-﻿namespace HW15
+﻿using System;
+
+namespace HW15
 {
-    class Motorcycle
+    public class Motorcycle
     {
-        public int Id { get; set; }
+        public Guid Id { get; private set; }
 
         public string Name { get; set; }
 
@@ -14,11 +16,12 @@
 
         public Motorcycle()
         {
+            Id = Guid.NewGuid();
         }
 
-        public Motorcycle(int id, string name, string model, int year, int odometer)
+        public Motorcycle(string name, string model, int year, int odometer)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Name = name;
             Model = model;
             Year = year;
