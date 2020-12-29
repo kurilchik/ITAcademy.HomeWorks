@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HW15
 {
-    public interface IMotorcycleRepository
+    public interface IMotorcycleRepository<T>
     {
-        public Motorcycle GetMotorcycleByID(int id);
+        public T GetMotorcycleByID(Guid id);
 
-        public List<Motorcycle> GetMotorcycles();
+        public List<T> GetMotorcycles();
 
-        public void CreateMotorcycle(Motorcycle motorcycle);
+        public void CreateMotorcycle(T motorcycle);
 
-        public void UpdateMotorcycle(Motorcycle motorcycle);
+        public void UpdateMotorcycle(T motorcycle);
 
-        public void DeleteMotorcycle(int id);
+        public void DeleteMotorcycle(Guid id);
     }
 }
