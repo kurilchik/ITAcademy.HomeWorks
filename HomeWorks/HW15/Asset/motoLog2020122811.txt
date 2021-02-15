@@ -1,0 +1,16 @@
+2020-12-28 11:23:30.120 +03:00 [INF] App started.
+2020-12-28 11:23:30.595 +03:00 [INF] CRUD for List started.
+2020-12-28 11:23:30.604 +03:00 [INF] Honda created.
+2020-12-28 11:23:30.611 +03:00 [INF] BMW created.
+2020-12-28 11:23:30.614 +03:00 [INF] Honda with ID 1 read.
+2020-12-28 11:23:30.622 +03:00 [INF] All motorcycles from List read.
+2020-12-28 11:23:30.623 +03:00 [INF] Honda with ID 1 updated.
+2020-12-28 11:23:30.624 +03:00 [INF] Motorcycle deleted.
+2020-12-28 11:23:30.626 +03:00 [INF] CRUD for Folder started.
+2020-12-28 11:23:31.990 +03:00 [INF] Honda created.
+2020-12-28 11:23:32.038 +03:00 [INF] BMW created.
+2020-12-28 11:23:32.102 +03:00 [INF] Honda with ID 1 read.
+2020-12-28 11:23:32.145 +03:00 [INF] All motorcycles from Folder read.
+2020-12-28 11:23:32.200 +03:00 [INF] Honda with ID 1 updated.
+2020-12-28 11:23:32.206 +03:00 [INF] Motorcycle deleted.
+2020-12-28 11:23:32.209 +03:00 [INF] Program completed successfully!
